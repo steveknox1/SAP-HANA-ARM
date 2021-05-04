@@ -138,7 +138,18 @@
             "sku": "[if (contains(parameters('OperatingSystem'),'12 SP3'),'12-SP3',if (contains(parameters('OperatingSystem'),'12 SP2'),'12-SP2','7.2'))]"
         },
         "diskConfig": "[variables(concat('diskConfig_', parameters('vmSize')))]",
-        "diskConfig_Standard_M128ms": {
+        "diskConfig_Standard_M64ms": {
+            "shared": 1023,
+            "sap": 63,
+            "backup1": 1024,
+            "backup2": 1024,
+            "data1": 1023,
+            "data2": 1023,
+            "data3": 1023,
+            "log1": 511,
+            "log2": 511
+        },
+        "diskConfig_Standard_M128s": {
             "shared": 1023,
             "sap": 63,
             "backup1": 2047,
@@ -146,8 +157,6 @@
             "data1": 1023,
             "data2": 1023,
             "data3": 1023,
-            "data4": 1023,
-            "data5": 1023,
             "log1": 511,
             "log2": 511
         }
@@ -310,38 +319,6 @@
         },
         {
             "type": "Microsoft.Compute/disks",
-            "name": "[concat(parameters('vmName'),'-data4')]",
-            "apiVersion": "2018-04-01",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Premium_LRS",
-                "tier": "Premium"
-            },
-            "properties": {
-                "creationData": {
-                    "createOption": "Empty"
-                },
-                "diskSizeGB": "[variables('diskConfig').data4]"
-            }
-        },
-        {
-            "type": "Microsoft.Compute/disks",
-            "name": "[concat(parameters('vmName'),'-data5')]",
-            "apiVersion": "2018-04-01",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Premium_LRS",
-                "tier": "Premium"
-            },
-            "properties": {
-                "creationData": {
-                    "createOption": "Empty"
-                },
-                "diskSizeGB": "[variables('diskConfig').data5]"
-            }
-        },
-        {
-            "type": "Microsoft.Compute/disks",
             "name": "[concat(parameters('vmName'),'-log1')]",
             "apiVersion": "2018-04-01",
             "location": "[resourceGroup().location]",
@@ -399,8 +376,6 @@
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data1'))]",
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data2'))]",
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data3'))]",
-                "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data4'))]",
-                "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data5'))]",
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-log1'))]",
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-log2'))]",
                 "[resourceId('Microsoft.Compute/availabilitySets', parameters('AvailSetName'))]"
@@ -431,7 +406,6 @@
                         {
                             "lun": 0,
                             "createOption": "Attach",
-                            "caching": "None",
                             "managedDisk": {
                                 "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-shared'))]"
                             }
@@ -439,7 +413,6 @@
                         {
                             "lun": 1,
                             "createOption": "Attach",
-                            "caching": "None",
                             "managedDisk": {
                                 "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-sap'))]"
                             }
@@ -447,7 +420,6 @@
                         {
                             "lun": 2,
                             "createOption": "Attach",
-                            "caching": "None",
                             "managedDisk": {
                                 "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-backup1'))]"
                             }
@@ -455,7 +427,6 @@
                         {
                             "lun": 3,
                             "createOption": "Attach",
-                            "caching": "None",
                             "managedDisk": {
                                 "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-backup2'))]"
                             }
@@ -463,7 +434,6 @@
                         {
                             "lun": 4,
                             "createOption": "Attach",
-                            "caching": "None",
                             "managedDisk": {
                                 "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data1'))]"
                             }
@@ -471,7 +441,6 @@
                         {
                             "lun": 5,
                             "createOption": "Attach",
-                            "caching": "None",
                             "managedDisk": {
                                 "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data2'))]"
                             }
@@ -479,7 +448,6 @@
                         {
                             "lun": 6,
                             "createOption": "Attach",
-                            "caching": "None",
                             "managedDisk": {
                                 "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data3'))]"
                             }
@@ -487,32 +455,14 @@
                         {
                             "lun": 7,
                             "createOption": "Attach",
-                            "caching": "None",
-                            "managedDisk": {
-                                "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data4'))]"
-                            }
-                        },
-                        {
-                            "lun": 8,
-                            "createOption": "Attach",
-                            "caching": "None",
-                            "managedDisk": {
-                                "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data5'))]"
-                            }
-                        },
-                        {
-                            "lun": 9,
-                            "createOption": "Attach",
-                            "caching": "None",
                             "writeAcceleratorEnabled": "true",
                             "managedDisk": {
                                 "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-log1'))]"
                             }
                         },
                         {
-                            "lun": 10,
+                            "lun": 8,
                             "createOption": "Attach",
-                            "caching": "None",
                             "writeAcceleratorEnabled": "true",
                             "managedDisk": {
                                 "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-log2'))]"
@@ -546,7 +496,7 @@
                             "fileUris": [
                                 "[concat(variables('baseUri'),'scripts/allvmsizes.sh')]"
                             ],
-                            "commandToExecute": "[concat('sh allvmsizes.sh \"', parameters('customUri'), '\" \"' , parameters('HanaVersion'),'\" \"' , parameters('vmUserName'), '\" \"', parameters('vmPassword'),'\" \"', parameters('HANASID'), '\" \"', parameters('HANANUMBER'), '\" \"', parameters('vmSize'), '\" \"', parameters('SubscriptionEmail'), '\" \"', parameters('SubscriptionID'),'\" \"', parameters('SMTUri'),'\"')]"
+                            "commandToExecute": "[concat('sh allvmsizes.sh \"', parameters('customUri'), '\" \"' , parameters('HanaVersion'), '\" \"' , parameters('vmUserName'), '\" \"', parameters('vmPassword'),'\" \"', parameters('HANASID'), '\" \"', parameters('HANANUMBER'), '\" \"', parameters('vmSize'), '\" \"', parameters('SubscriptionEmail'), '\" \"', parameters('SubscriptionID'),'\"  \"', parameters('SMTUri'),'\"')]"
                         }
                     }
                 }
