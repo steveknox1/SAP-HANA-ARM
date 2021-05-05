@@ -12,31 +12,31 @@
             "value": "Standard_GS5 (448 GB, Certified)"
         },
         "NetworkName": {
-            "value": "ra-sap-hana-vnet"
+            "value": "azrsapnetEUSmain"
         },
         "addressPrefixes": {
-            "value": "10.0.0.0/16"
+            "value": "10.1.0.0/16"
         },
         "HANASubnetName": {
-            "value": "SAPDataSubnet"
+            "value": "Demo"
         },
         "HANASubnetPrefix": {
-            "value": "10.0.5.0/24"
+            "value": "10.1.0.0/19"
         },
         "ManagementSubnetName": {
-            "value": "SAPMgmtSubnet"
+            "value": ""
         },
         "ManagementSubnetPrefix": {
-            "value": "10.0.6.0/24"
+            "value": ""
         },
         "customURI": {
-            "value": "https://yourblobname.blob.core.windows.net/yourContainerName"            
+            "value": "https://azrzrdpmap010.file.core.windows.net/azrzrdpmap010-fileshare"            
         },
         "VMUserName": {
-            "value": "testuser"
+            "value": "dxcadmin"
         },
         "VMPassword": {
-            "value": "YourPassword"
+            "value": "New4now+New4now+"
                         },                    
         "OperatingSystem": {
             "value":  "SLES for SAP 12 SP3"
