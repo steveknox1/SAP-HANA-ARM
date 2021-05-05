@@ -36,9 +36,9 @@ else
     then
       hanapackage="51053061"
     else
-      if [ "$HANAVER" = "SAP HANA PLATFORM EDITION 2.0 SPS04 REV40 (51053787)" ]
+      if [ "$HANAVER" = "SAP HANA PLATFORM EDITION 2.0 SPS04 REV43 (51054413)" ]
       then
-        hanapackage="51053787"
+        hanapackage="51054413"
       else
         echo "not 51053061, default to 51052325"
         hanapackage="51052325"
@@ -324,8 +324,8 @@ else
     then
       hanapackage="51053061"
     else
-      echo "not 51053061, default to 51052325"
-      hanapackage="51052325"
+      echo "not 51053061, default to 51054413"
+      hanapackage="51054413"
     fi
   fi
 fi
@@ -334,7 +334,7 @@ fi
 #####################
 SAPBITSDIR="/hana/data/sapbits"
 
-if [ "${hanapackage}" = "51053787" ]
+if [ "${hanapackage}" = "51054413" ]
 then 
   /usr/bin/wget --quiet $Uri/SapBits/${hanapackage}.ZIP
   cd $SAPBITSDIR
