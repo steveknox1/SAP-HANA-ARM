@@ -11,7 +11,8 @@
             "allowedValues": [
                 "SAP HANA PLATFORM EDITION 2.0 SPS01 REV 10 (51052030)",
                 "SAP HANA PLATFORM EDITION 2.0 SPS02 (51052325)",
-                "SAP HANA PLATFORM EDITION 2.0 SPS03 REV30 (51053061)"
+                "SAP HANA PLATFORM EDITION 2.0 SPS03 REV30 (51053061)",
+		"SAP HANA PLATFORM EDITION 2.0 SPS04 REV30 (51054413)"
             ]
         },   
         "vmName": {
@@ -128,7 +129,7 @@
         "api-version": "2017-06-01",
         "api-version-vm": "2017-12-01",
         "mode": "Push",
-        "baseUri": "https://raw.githubusercontent.com/AzureCAT-GSI/SAP-HANA-ARM/master/",
+        "baseUri": "https://raw.githubusercontent.com/steveknox1/SAP-HANA-ARM/master/",
         "nicName": "[if (equals(parameters('IPAllocationMethod'),'Static'), concat(parameters('vmName'),'-static'), concat(parameters('vmName'),'-dynamic'))]",
         "subnetRef": "[parameters('HANASubnetRef')]",
         "OperatingSystemSpec": {
