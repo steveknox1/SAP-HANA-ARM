@@ -323,13 +323,16 @@ else
     if [ "$HANAVER" = "SAP HANA PLATFORM EDITION 2.0 SPS03 REV30 (51053061)" ]
     then
       hanapackage="51053061"
+if [ "${HANAVER}" = "SAP HANA PLATFORM EDITION 2.0 SPS04 REV 43 (51054413)" ]
+then
+  hanapackage="51054413"
     else
       echo "not 51053061, default to 51054413"
       hanapackage="51054413"
-    fi
-  fi
+     fi
+   fi
+ fi
 fi
-
 
 #####################
 SAPBITSDIR="/hana/data/sapbits"
