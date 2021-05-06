@@ -383,7 +383,7 @@ cd /hana/data/sapbits
 cd /hana/data/sapbits
 myhost=`hostname`
 sedcmd="s/REPLACE-WITH-HOSTNAME/$myhost/g"
-sedcmd2="s/\/hana\/shared\/sapbits\/51052325/\/hana\/data\/sapbits\/${hanapackage}/g"
+sedcmd2="s/\/hana\/shared\/sapbits\/51054413/\/hana\/data\/sapbits\/${hanapackage}/g"
 sedcmd3="s/root_user=root/root_user=$HANAUSR/g"
 sedcmd4="s/AweS0me@PW/$HANAPWD/g"
 sedcmd5="s/sid=H10/sid=$HANASID/g"
