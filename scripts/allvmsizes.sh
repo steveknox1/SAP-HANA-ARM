@@ -370,7 +370,7 @@ fi
 cd /hana/data/sapbits
 echo "hana download start" >> /tmp/parameter.txt
 /usr/bin/wget --quiet $Uri/SapBits/md5sums
-/usr/bin/wget --quiet "https://raw.githubusercontent.com/AzureCAT-GSI/SAP-HANA-ARM/master/hdbinst.cfg"
+/usr/bin/wget --quiet "https://raw.githubusercontent.com/steveknox1/SAP-HANA-ARM/master/hdbinst.cfg"
 echo "hana download end" >> /tmp/parameter.txt
 
 date >> /tmp/testdate
