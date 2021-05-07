@@ -12,7 +12,7 @@
                 "SAP HANA PLATFORM EDITION 2.0 SPS01 REV 10 (51052030)",
                 "SAP HANA PLATFORM EDITION 2.0 SPS02 (51052325)",
                 "SAP HANA PLATFORM EDITION 2.0 SPS03 REV30 (51053061)",
-                "SAP HANA PLATFORM EDITION 2.0 SPS04 REV40 (51053787)"
+                "SAP HANA PLATFORM EDITION 2.0 SPS04 REV46 (51054413)"
             ]
         },   
         "VMName": {
@@ -52,28 +52,28 @@
         },   
         "NetworkName": {
             "type": "string",
-            "defaultValue": "ra-sap-hana-vnet",
+            "defaultValue": "azrsapnetEUSmain",
             "metadata": {
                 "description": "The HANA VNET"
             }
         },
         "addressPrefixes": {
             "type": "string",
-            "defaultValue": "10.0.0.0/16",
+            "defaultValue": "10.1.0.0/16",
             "metadata": {
                 "description": "The HANA VNET prefix"
             }
         },
         "HANASubnetName": {
             "type": "string",
-            "defaultValue": "SAPDataSubnet",
+            "defaultValue": "Demo",
             "metadata": {
                 "description": "The data subnet name"
             }
         },
         "HANASubnetPrefix": {
             "type": "string",
-            "defaultValue": "10.0.5.0/24",
+            "defaultValue": "10.1.0.0/19",
             "metadata": {
                 "description": "The data subnet prefix"
             }
@@ -103,7 +103,7 @@
             "metadata": {
                 "description": "Username for the Virtual Machine"
             },
-            "defaultValue": "testuser"
+            "defaultValue": "dxcadmin"
         },
         "VMPassword": {
             "type": "securestring",
@@ -153,14 +153,14 @@
             "metadata": {
                 "description": "IP Allocation Method"
           },
-          "defaultValue": "Dynamic"
+          "defaultValue": "Static"
         },
         "StaticIP": {
           "type": "string",
           "metadata": {
             "description": "IP Address for the HANA VM when Static IP Allocation Method has been selected"
           },
-          "defaultValue": "10.0.5.4"
+          "defaultValue": "10.1.0.5"
         },
         "AvailSetName": {
           "type": "string",
@@ -193,7 +193,7 @@
     },
   "variables": {
     "vmName": "[toLower(parameters('vmName'))]",
-    "baseUri": "https://raw.githubusercontent.com/AzureCAT-GSI/SAP-HANA-ARM/master/",
+    "baseUri": "https://raw.githubusercontent.com/steveknox1/SAP-HANA-ARM/master/",
     "smallUri": "[concat(variables('baseUri'),'Vms/small.json')]",
     "mediumUri": "[concat(variables('baseUri'),'Vms/medium.json')]",
     "largeUri": "[concat(variables('baseUri'),'Vms/large.json')]",
