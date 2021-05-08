@@ -42,6 +42,12 @@ else
       else
         echo "not 51053061, default to 51052325"
         hanapackage="51052325"
+    if [ "${HANAVER}" = "SAP HANA PLATFORM EDITION 2.0 SPS05 REV52 (51054623)" ]
+	then
+  	hanapackage="51054623"
+	else
+  	echo "not 51054623"
+	fi
       fi
     fi
   fi
@@ -329,6 +335,13 @@ then
     else
       echo "not 51053061, default to 51054413"
       hanapackage="51054413"
+if [ "${HANAVER}" = "SAP HANA PLATFORM EDITION 2.0 SPS05 REV52 (51054623)" ]
+then
+  hanapackage="51054623"
+    else
+      echo "not 51054623, default to 51054623"
+      hanapackage="51054623"
+       fi
      fi
    fi
  fi
@@ -337,8 +350,7 @@ fi
 #####################
 SAPBITSDIR="/hana/data/sapbits"
 cd $SAPBITSDIR
- echo "in like Flynn" >> /tmp/parameter.txt
-if [ "${hanapackage}" = "51054413" ]
+if [ "${hanapackage}" = "51054623" ]
 then 
   /usr/bin/wget --quiet $Uri/SapBits/${hanapackage}.ZIP
  echo "downloaded the bits" >> /tmp/parameter.txt
@@ -385,7 +397,7 @@ cd /hana/data/sapbits
 cd /hana/data/sapbits
 myhost=`hostname`
 sedcmd="s/REPLACE-WITH-HOSTNAME/$myhost/g"
-sedcmd2="s/\/hana\/shared\/sapbits\/51054413/\/hana\/data\/sapbits\/${hanapackage}/g"
+sedcmd2="s/\/hana\/shared\/sapbits\/51054623/\/hana\/data\/sapbits\/${hanapackage}/g"
 sedcmd3="s/root_user=root/root_user=$HANAUSR/g"
 sedcmd4="s/AweS0me@PW/$HANAPWD/g"
 sedcmd5="s/sid=H10/sid=$HANASID/g"
