@@ -336,10 +336,12 @@ fi
 
 #####################
 SAPBITSDIR="/hana/data/sapbits"
-
+cd $SAPBITSDIR
+ echo "in like Flynn" >> /tmp/parameter.txt
 if [ "${hanapackage}" = "51054413" ]
 then 
   /usr/bin/wget --quiet $Uri/SapBits/${hanapackage}.ZIP
+ echo "downloaded the bits" >> /tmp/parameter.txt
   cd $SAPBITSDIR
   mkdir ${hanapackage}
   cd ${hanapackage}
