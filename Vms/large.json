@@ -12,7 +12,8 @@
                 "SAP HANA PLATFORM EDITION 2.0 SPS01 REV 10 (51052030)",
                 "SAP HANA PLATFORM EDITION 2.0 SPS02 (51052325)",
                 "SAP HANA PLATFORM EDITION 2.0 SPS03 REV30 (51053061)",
-		"SAP HANA PLATFORM EDITION 2.0 SPS04 REV46 (51054413)"
+		"SAP HANA PLATFORM EDITION 2.0 SPS04 REV46 (51054413)",
+		"SAP HANA PLATFORM EDITION 2.0 SPS05 REV52 (51054623)"
             ]
         },   
         "vmName": {
@@ -38,8 +39,9 @@
             "metadata": {
                 "description": "Operating system for HANA Machine"
             },
-            "defaultValue": "SLES for SAP 12 SP3",
+            "defaultValue": "SLES for SAP 12 SP4",
             "allowedValues": [
+		"SLES for SAP 12 SP4",
                 "SLES for SAP 12 SP3",
                 "SLES for SAP 12 SP2",
                 "RHEL 7.2 for SAP HANA"
