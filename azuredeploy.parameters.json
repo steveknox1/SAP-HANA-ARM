@@ -39,7 +39,7 @@
             "value": "New4now+New4now+"
                         },                    
         "OperatingSystem": {
-            "value":  "SLES for SAP 12 SP3"
+            "value":  "SLES for SAP 12 SP4"
         },
         "HANASID": {
             "value":  "H10"
