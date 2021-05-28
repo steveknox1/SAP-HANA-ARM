@@ -38,8 +38,8 @@
         "VMPassword": {
             "value": "New4now+New4now+"
                         },                    
-        "OperatingSystem": {
-            "value":  "SLES for SAP 12 SP4"
+        "osType": {
+            "value":  "SLES for SAP 15 SP2"
         },
         "HANASID": {
             "value":  "H10"
