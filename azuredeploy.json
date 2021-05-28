@@ -113,14 +113,14 @@
                 "description": "Password for the Virtual Machine"
             }
         },
-        "OperatingSystem": {
+        "osType": {
             "type": "string",
             "metadata": {
                 "description": "Operating system for HANA Machine"
             },
-            "defaultValue": "SLES for SAP 12 SP5",
+            "defaultValue": "SLES for SAP 15 SP2",
             "allowedValues": [
-			"SLES for SAP 12 SP5",
+			"SLES for SAP 15 SP2",
 			"SLES for SAP 12 SP4",               
  			"SLES for SAP 12 SP3",
 		        "SLES for SAP 12 SP2",
