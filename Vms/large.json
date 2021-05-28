@@ -129,7 +129,7 @@
         }
     },
     "variables": {
-        "api-version": "2018-05-01",
+        "api-version": "2021-03-01",
         "api-version-vm": "2017-12-01",
         "vmPassword": "HANA07061992!",
         "mode": "Push",
