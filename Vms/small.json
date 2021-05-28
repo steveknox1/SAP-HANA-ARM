@@ -137,7 +137,7 @@
         "subnetRef": "[parameters('HANASubnetRef')]",
 	"OperatingSystemSpec": {
 	"imagePublisher": "[if (contains(parameters('OperatingSystem'),'SLES'),'SUSE','RedHat')]",
-        "imageSku" :  "[if(equals(parameters('OperatingSystem'), 'SLES for SAP 15 SP2'), 'gen1', if(equals(parameters('OperatingSystem'), 'SLES for SAP 15'), '15', if(equals(parameters('OperatingSystem'), 'SLES for SAP 12 SP4'), '12-SP4', if(equals(parameters('OperatingSystem'), 'SLES for SAP 12 SP3'), '12-SP3', '12-SP4'))))]",
+        "imageSku": "[if(equals(parameters('OperatingSystem'), 'SLES for SAP 15 SP2'), '15-SP2', if(equals(parameters('OperatingSystem'), 'SLES for SAP 15'), '15', if(equals(parameters('OperatingSystem'), 'SLES for SAP 12 SP4'), '12-SP4', if(equals(parameters('OperatingSystem'), 'SLES for SAP 12 SP3'), '12-SP3', '12-SP4'))))]",
         "imageOffer" : "[if(equals(parameters('OperatingSystem'), 'SLES for SAP 15 SP2'), 'sles-sap-15-sp2', 'SLES-SAP')]",   
 	},           
          "diskConfig": "[variables(concat('diskConfig_', parameters('vmSize')))]",
