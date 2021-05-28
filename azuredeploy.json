@@ -113,7 +113,7 @@
                 "description": "Password for the Virtual Machine"
             }
         },
-        "osType": {
+        "OperatingSystem": {
             "type": "string",
             "metadata": {
                 "description": "Operating system for HANA Machine"

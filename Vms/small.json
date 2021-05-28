@@ -34,7 +34,7 @@
                 "description": "The Hana subnet reference ID"
             }
         },
-        "osType": {
+        "OperatingSystem": {
             "type": "string",
             "metadata": {
                 "description": "Operating system for HANA Machine"
@@ -135,8 +135,8 @@
         "baseUri": "https://raw.githubusercontent.com/steveknox1/SAP-HANA-ARM/master/",
         "nicName": "[if (equals(parameters('IPAllocationMethod'),'Static'), concat(parameters('vmName'),'-static'), concat(parameters('vmName'),'-dynamic'))]",
         "subnetRef": "[parameters('HANASubnetRef')]",
-  	"imageSku" :  "[if(equals(parameters('osType'), 'SLES for SAP 15 SP2'), 'gen1', if(equals(parameters('osType'), 'SLES for SAP 15'), '15', if(equals(parameters('osType'), 'SLES for SAP 12 SP4'), '12-SP4', if(equals(parameters('osType'), 'SLES for SAP 12 SP3'), '12-SP3', '12-SP4'))))]",
-        "imageOffer" : "[if(equals(parameters('osType'), 'SLES for SAP 15 SP2'), 'sles-sap-15-sp2', 'SLES-SAP')]",       
+  	"imageSku" :  "[if(equals(parameters('OperatingSystem'), 'SLES for SAP 15 SP2'), 'gen1', if(equals(parameters('OperatingSystem'), 'SLES for SAP 15'), '15', if(equals(parameters('OperatingSystem'), 'SLES for SAP 12 SP4'), '12-SP4', if(equals(parameters('OperatingSystem'), 'SLES for SAP 12 SP3'), '12-SP3', '12-SP4'))))]",
+        "imageOffer" : "[if(equals(parameters('OperatingSystem'), 'SLES for SAP 15 SP2'), 'sles-sap-15-sp2', 'SLES-SAP')]",       
          "diskConfig": "[variables(concat('diskConfig_', parameters('vmSize')))]",
         "diskConfig_Standard_E16s_v3": {
             "shared": 511,

@@ -38,7 +38,7 @@
         "VMPassword": {
             "value": "New4now+New4now+"
                         },                    
-        "osType": {
+        "OperatingSystem": {
             "value":  "SLES for SAP 15 SP2"
         },
         "HANASID": {
