@@ -41,7 +41,6 @@
             },
             "defaultValue": "SLES for SAP 12 SP4",
             "allowedValues": [
-		"SLES for SAP 15 SP2",
 		"SLES for SAP 12 SP4",
                 "SLES for SAP 12 SP3",
                 "SLES for SAP 12 SP2",
